@@ -1,17 +1,29 @@
 # mp42frame.py
 
-This is a Python program that can be used to convert MP4 video files into frames.
+This Python script, `mp42frame.py`, is used to convert a video file or multiple video files in a directory into a series of image frames.
+
+## Dependencies
+
+- OpenCV (cv2)
+- sys
+- os
+- glob
 
 ## Usage
 
-1. To convert a single MP4 video file into frames:
-      python mp42frame.py path_to_video/video_name.mp4
+1. For a single video file:
+    ```
+    python mp42frame.py <video_file.mp4>
+    ```
+    This will create a new directory with the same name as the video file (without the '.mp4' extension) and save the extracted frames as JPEG files in this directory.
 
-   The frames will be saved into a folder with the same name as the MP4 file.
+2. For multiple video files in a directory:
+    ```
+    python mp42frame.py <directory_path>
+    ```
+    This will process all '.mp4' files in the specified directory. For each video file, a new directory will be created with the same name as the video file (without the '.mp4' extension) and the extracted frames will be saved as JPEG files in these directories.
 
-3. To convert multiple MP4 video files at once:
-      python mp42frame.py path_to_video/
-
-    The frames will be saved into different folders named after the MP4 files.
-
-Please ensure that the path to the video or the directory is correct to avoid any errors.
+## Note
+- The script will exit if no argument is provided.
+- The frames are saved as 'frame_n.jpg', where 'n' is the frame number.
+- The script will stop if the 'Escape' key is hit during the frame extraction process.
